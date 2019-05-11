@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ewidencja", "ewidencja\ewidencja.csproj", "{47449B5B-1010-413C-AF3E-B1CA2140A333}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47449B5B-1010-413C-AF3E-B1CA2140A333}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47449B5B-1010-413C-AF3E-B1CA2140A333}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47449B5B-1010-413C-AF3E-B1CA2140A333}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47449B5B-1010-413C-AF3E-B1CA2140A333}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C27E519F-F501-4AA8-9D0C-C9404FAA0660}
+	EndGlobalSection
+EndGlobal
