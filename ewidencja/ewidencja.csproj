@@ -168,15 +168,22 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdresyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ObywatelController.cs" />
+    <Compile Include="Controllers\UwagiController.cs" />
+    <Compile Include="DAL\EwidencjaContext.cs" />
+    <Compile Include="DAL\EwidencjaInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Adresy.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Obywatel.cs" />
+    <Compile Include="Models\Uwagi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -236,6 +243,21 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Obywatel\Create.cshtml" />
+    <Content Include="Views\Obywatel\Delete.cshtml" />
+    <Content Include="Views\Obywatel\Details.cshtml" />
+    <Content Include="Views\Obywatel\Edit.cshtml" />
+    <Content Include="Views\Obywatel\Index.cshtml" />
+    <Content Include="Views\Adresy\Create.cshtml" />
+    <Content Include="Views\Adresy\Delete.cshtml" />
+    <Content Include="Views\Adresy\Details.cshtml" />
+    <Content Include="Views\Adresy\Edit.cshtml" />
+    <Content Include="Views\Adresy\Index.cshtml" />
+    <Content Include="Views\Uwagi\Create.cshtml" />
+    <Content Include="Views\Uwagi\Delete.cshtml" />
+    <Content Include="Views\Uwagi\Details.cshtml" />
+    <Content Include="Views\Uwagi\Edit.cshtml" />
+    <Content Include="Views\Uwagi\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,99 @@
+﻿@model IEnumerable<ewidencja.Models.Adresy>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Obywatel.PESEL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ulica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Miasto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kod_pocztowy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Poczta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gmina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Powiat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wojewodztwo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data_zam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data_wym)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pobyt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Statusadr)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Obywatel.PESEL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ulica)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Miasto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kod_pocztowy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Poczta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gmina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Powiat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Wojewodztwo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data_zam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data_wym)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pobyt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Statusadr)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

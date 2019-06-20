@@ -29,5 +29,9 @@ namespace ewidencja.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<ewidencja.Models.Obywatel> Obywatels { get; set; }
+
+        public System.Data.Entity.DbSet<ewidencja.Models.Adresy> Adresies { get; set; }
     }
 }

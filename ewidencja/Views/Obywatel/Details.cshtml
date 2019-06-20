@@ -1,0 +1,117 @@
+﻿@model ewidencja.Models.Obywatel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Obywatel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PESEL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PESEL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Drugie_imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Drugie_imie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data_urodzenia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data_urodzenia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data_zgonu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data_zgonu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+        <br /><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.Adresies)
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Ulica</th>
+                    <th>Miasto</th>
+                    <th>Województwo</th>
+                </tr>
+                @foreach (var item in Model.Adresies)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Ulica)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Miasto)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Wojewodztwo)</td>
+                    </tr>
+                }
+            </table>
+        </dd>
+        <br /><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.Uwagis)
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Opis uwagi</th>
+                </tr>
+                @foreach (var item in Model.Uwagis)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Opis)</td>
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
