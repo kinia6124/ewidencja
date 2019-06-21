@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using ewidencja.DAL;
 using ewidencja.Models;
+using System.Threading.Tasks;
 
 namespace ewidencja.Controllers
 {
@@ -16,9 +17,55 @@ namespace ewidencja.Controllers
         private EwidencjaContext db = new EwidencjaContext();
 
         // GET: Obywatel
-        public ActionResult Index()
+        public async Task<ActionResult> Index(string sortOrder, string searchString)
         {
-            return View(db.Obywatels.ToList());
+            if (Request.IsAuthenticated)
+            {
+                ViewBag.PeselSortParm = String.IsNullOrEmpty(sortOrder) ? "pesel_desc" : "";
+                ViewBag.ImieSortParm = sortOrder == "imie" ? "imie_desc" : "imie";
+                ViewBag.NazwiskoSortParm = sortOrder == "nazwisko" ? "nazwisko_desc" : "nazwisko";
+                ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+                var obywatels = from o in db.Obywatels
+                                select o;
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    obywatels = obywatels.Where(o => o.PESEL.Contains(searchString)
+                                                    || o.Imie.Contains(searchString)
+                                                    || o.Nazwisko.Contains(searchString));
+                }
+                switch (sortOrder)
+                {
+                    case "pesel_desc":
+                        obywatels = obywatels.OrderByDescending(o => o.PESEL);
+                        break;
+                    case "imie":
+                        obywatels = obywatels.OrderBy(o => o.Imie);
+                        break;
+                    case "imie_desc":
+                        obywatels = obywatels.OrderByDescending(o => o.Imie);
+                        break;
+                    case "nazwisko":
+                        obywatels = obywatels.OrderBy(o => o.Nazwisko);
+                        break;
+                    case "nazwisko_desc":
+                        obywatels = obywatels.OrderByDescending(o => o.Nazwisko);
+                        break;
+                    case "Date":
+                        obywatels = obywatels.OrderBy(o => o.Data_urodzenia);
+                        break;
+                    case "date_desc":
+                        obywatels = obywatels.OrderByDescending(o => o.Data_urodzenia);
+                        break;
+                    default:
+                        obywatels = obywatels.OrderBy(o => o.PESEL);
+                        break;
+                }
+                return View(obywatels.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Index", "Obywatel") });
+            }
         }
 
         // GET: Obywatel/Details/5

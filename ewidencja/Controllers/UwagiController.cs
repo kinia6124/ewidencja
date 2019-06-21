@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using ewidencja.DAL;
 using ewidencja.Models;
+using System.Threading.Tasks;
 
 namespace ewidencja.Controllers
 {
@@ -16,10 +17,25 @@ namespace ewidencja.Controllers
         private EwidencjaContext db = new EwidencjaContext();
 
         // GET: Uwagi
-        public ActionResult Index()
+        public async Task<ActionResult> Index(string searchString)
         {
+            if(Request.IsAuthenticated)
+            {
             var uwagis = db.Uwagis.Include(u => u.Obywatel);
-            return View(uwagis.ToList());
+                if(!String.IsNullOrEmpty(searchString))
+                {
+                   uwagis = uwagis.Where(u => u.Obywatel.PESEL.Contains(searchString));
+                   
+
+                }
+                return View(uwagis.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Index", "Uwagi") });
+            }
+            
+            
         }
 
         // GET: Uwagi/Details/5

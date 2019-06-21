@@ -1,42 +1,49 @@
 ﻿@model IEnumerable<ewidencja.Models.Adresy>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista Adresów";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Dodaj", "Create")
 </p>
+@using (Html.BeginForm())
+{
+    <p>
+        Znajdź uwagę: @Html.TextBox("SearchString")
+        <input type="submit" value="Znajdź" />
+    </p>
+}
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Obywatel.PESEL)
+            @Html.ActionLink("PESEL", "Index", new { sortOrder = ViewBag.PeselSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Ulica)
+            @Html.ActionLink("Ulica", "Index", new { sortOrder = ViewBag.UlicaSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Miasto)
+            @Html.ActionLink("Miasto", "Index", new { sortOrder = ViewBag.MiastoSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Kod_pocztowy)
+            @Html.ActionLink("Kod pocztowy", "Index", new { sortOrder = ViewBag.KodSortParm })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Poczta)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Gmina)
+            @Html.ActionLink("Gmina", "Index", new { sortOrder = ViewBag.GminaSortParm })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Powiat)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Wojewodztwo)
+            @Html.ActionLink("Województwo", "Index", new { sortOrder = ViewBag.WojSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Data_zam)
+            @Html.ActionLink("Data zameldowania", "Index", new { sortOrder = ViewBag.DateSortParm })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Data_wym)
@@ -50,50 +57,51 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Obywatel.PESEL)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ulica)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Miasto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Kod_pocztowy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Poczta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gmina)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Powiat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Wojewodztwo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Data_zam)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Data_wym)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Pobyt)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Statusadr)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Obywatel.PESEL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ulica)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Miasto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kod_pocztowy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Poczta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gmina)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Powiat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Wojewodztwo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data_zam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data_wym)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pobyt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Statusadr)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
 
 </table>

@@ -1,14 +1,21 @@
 ﻿@model IEnumerable<ewidencja.Models.Uwagi>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista Uwag";
 }
 
-<h2>Index</h2>
+<h2>Lista Uwag</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Dodaj uwagę", "Create")
 </p>
+@using(Html.BeginForm())
+{
+    <p>
+        Znajdź uwagę: @Html.TextBox("SearchString")
+        <input type="submit" value="Znajdź"/>
+    </p>
+}
 <table class="table">
     <tr>
         <th>

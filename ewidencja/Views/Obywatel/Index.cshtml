@@ -1,33 +1,40 @@
 ﻿@model IEnumerable<ewidencja.Models.Obywatel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista Obywateli";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Dodaj", "Create")
 </p>
+@using (Html.BeginForm())
+{
+    <p>
+        Znajdź uwagę: @Html.TextBox("SearchString")
+        <input type="submit" value="Znajdź" />
+    </p>
+}
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.ID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PESEL)
+            @Html.ActionLink("PESEL", "Index", new { sortOrder = ViewBag.PeselSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Imie)
+            @Html.ActionLink("Imie", "Index", new { sortOrder = ViewBag.ImieSortParm })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Drugie_imie)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Nazwisko)
+            @Html.ActionLink("Nazwisko", "Index", new { sortOrder = ViewBag.NazwiskoSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Data_urodzenia)
+            @Html.ActionLink("Data urodzenia", "Index", new { sortOrder = ViewBag.DateSortParm })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Data_zgonu)
@@ -38,38 +45,39 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.ID)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.PESEL)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Imie)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Drugie_imie)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Nazwisko)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Data_urodzenia)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Data_zgonu)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Status)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-    </td>
-</tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PESEL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Drugie_imie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwisko)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data_urodzenia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data_zgonu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
 
 </table>
