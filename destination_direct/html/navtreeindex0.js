@@ -1,0 +1,23 @@
+var NAVTREEINDEX0 =
+{
+".html":[2,0,0,0],
+".html":[2,0,0,1],
+"Global_8asax_8cs.html":[2,0,0,0],
+"Startup_8cs.html":[2,0,0,1],
+"annotated.html":[1,0],
+"classes.html":[1,1],
+"classewidencja_1_1MvcApplication.html":[1,0,0,0],
+"classewidencja_1_1MvcApplication.html#a71cc7d9b902e8fc085595da1960a157c":[1,0,0,0,0],
+"classewidencja_1_1Startup.html":[1,0,0,1],
+"classewidencja_1_1Startup.html#acb9a2e4d18219d769da402c5523e7667":[1,0,0,1,0],
+"dir_a5a59375074e9553249057f46317a316.html":[2,0,0],
+"files.html":[2,0],
+"functions.html":[1,3,0],
+"functions_func.html":[1,3,1],
+"hierarchy.html":[1,2],
+"index.html":[],
+"namespaceewidencja.html":[0,0,0],
+"namespaceewidencja.html":[1,0,0],
+"namespaces.html":[0,0],
+"pages.html":[]
+};
