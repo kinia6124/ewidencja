@@ -4,19 +4,27 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
-
+/// <summary>
+/// Model tabeli adresy
+/// </summary>
 namespace ewidencja.Models
 {
-
+    /// <summary>
+    /// deklaracja listy rozwijanej Pobyt
+    /// </summary>
     public enum Pobyt
     {
         stały, tymczasowy
     }
-
+    /// <summary>
+    /// deklaracja listy rozwijanej Status adresu
+    /// </summary>
     public enum Statusadr
     {
         adres_korespondencyjny, adres_zameldowania, adres_główny
-    }
+    }/// <summary>
+    /// klasa tworąca widok tabeli Adresy
+    /// </summary>
     public class Adresy
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -33,7 +41,9 @@ namespace ewidencja.Models
         public DateTime Data_wym { get; set; }
         public Pobyt? Pobyt { get; set; }
         public Statusadr? Statusadr { get; set; }
-
+        /// <summary>
+        /// połączenie z tabelą Obywatel
+        /// </summary>
         public virtual Obywatel Obywatel { get; set; }
 
 
