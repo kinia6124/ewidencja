@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 /// <summary>
-/// Model tabeli adresy
+/// Model tabeli Adresy
 /// </summary>
 namespace ewidencja.Models
 {
